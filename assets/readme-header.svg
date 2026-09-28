@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 260" width="100%" height="260" style="background: transparent;">
+  <defs>
+    <!-- Background Gradient Animation -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a">
+        <animate attributeName="stop-color" values="#0f172a; #1e1b4b; #0f172a" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#1e293b">
+        <animate attributeName="stop-color" values="#1e293b; #311b92; #1e293b" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#0284c7">
+        <animate attributeName="stop-color" values="#0284c7; #4f46e5; #0284c7" dur="10s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Text Glow Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Shimmer Effect -->
+    <linearGradient id="shimmer" x1="-100%" y1="0%" x2="200%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+    </pattern>
+
+    <!-- Glowing Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 0.4; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    @keyframes floatBar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes barGrow1 {
+      0%, 100% { height: 45px; y: 155px; }
+      50% { height: 65px; y: 135px; }
+    }
+    @keyframes barGrow2 {
+      0%, 100% { height: 75px; y: 125px; }
+      50% { height: 95px; y: 105px; }
+    }
+    @keyframes barGrow3 {
+      0%, 100% { height: 60px; y: 140px; }
+      50% { height: 80px; y: 120px; }
+    }
+    @keyframes shimmerMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .badge-ring { animation: pulseRing 3s ease-in-out indefinite; transform-origin: center; }
+    .bar-1 { animation: barGrow1 4s ease-in-out indefinite; }
+    .bar-2 { animation: barGrow2 3.5s ease-in-out indefinite 0.5s; }
+    .bar-3 { animation: barGrow3 4.5s ease-in-out indefinite 1s; }
+    .floating-card { animation: floatBar 6s ease-in-out indefinite; }
+    .fade-text { animation: fadeIn 1.2s ease-out forwards; }
+  </style>
+
+  <!-- Card Container Background -->
+  <rect width="850" height="260" rx="16" fill="url(#bgGrad)" />
+  <rect width="850" height="260" rx="16" fill="url(#grid)" />
+  
+  <!-- Outer Border -->
+  <rect x="1" y="1" width="848" height="258" rx="15" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+
+  <!-- Status Pill / Badge -->
+  <g transform="translate(45, 32)">
+    <rect width="280" height="28" rx="14" fill="rgba(14, 165, 233, 0.15)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" />
+    <circle cx="16" cy="14" r="5" fill="#38bdf8" class="badge-ring" />
+    <circle cx="16" cy="14" r="3" fill="#0284c7" />
+    <text x="30" y="18" fill="#7dd3fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.8">RESEARCH STUDY &amp; COMMUNITY PLATFORM</text>
+  </g>
+
+  <!-- Title Text -->
+  <text x="45" y="105" fill="url(#textGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" filter="url(#glow)" letter-spacing="-0.5">
+    Digital Literacy Boisar 📊
+  </text>
+
+  <!-- Subtitle Text -->
+  <text x="45" y="138" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500">
+    Digital Literacy Impact Assessment Using Data Science
+  </text>
+  <text x="45" y="162" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="400">
+    Theem College of Arts, Commerce &amp; Science • Dept. of Information Technology
+  </text>
+
+  <!-- Tag Pills -->
+  <g transform="translate(45, 188)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="110" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" />
+    <text x="12" y="17" fill="#cbd5e1" font-family="sans-serif" font-size="11" font-weight="600">n=60 Dataset</text>
+    
+    <!-- Pill 2 -->
+    <rect x="120" y="0" width="145" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" />
+    <text x="132" y="17" fill="#cbd5e1" font-family="sans-serif" font-size="11" font-weight="600">7 Interactive Charts</text>
+    
+    <!-- Pill 3 -->
+    <rect x="275" y="0" width="135" height="26" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" />
+    <text x="287" y="17" fill="#cbd5e1" font-family="sans-serif" font-size="11" font-weight="600">Multilingual EN/HI/MR</text>
+  </g>
+
+  <!-- Graphic Decorative Element on Right (Animated Chart Widget) -->
+  <g class="floating-card" transform="translate(630, 25)">
+    <!-- Glassmorphic Card Backing -->
+    <rect width="175" height="205" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" backdrop-filter="blur(10px)" />
+    
+    <!-- Card Header -->
+    <rect x="15" y="15" width="145" height="18" rx="4" fill="rgba(255, 255, 255, 0.08)" />
+    <text x="25" y="28" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="700">STUDY METRICS</text>
+
+    <!-- Animated Chart Bars -->
+    <!-- Bar 1 -->
+    <rect class="bar-1" x="30" y="140" width="24" height="60" rx="4" fill="url(#textGrad)" opacity="0.85" />
+    <text x="42" y="195" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Youth</text>
+
+    <!-- Bar 2 -->
+    <rect class="bar-2" x="75" y="110" width="24" height="90" rx="4" fill="#38bdf8" opacity="0.9" />
+    <text x="87" y="195" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">MIDC</text>
+
+    <!-- Bar 3 -->
+    <rect class="bar-3" x="120" y="130" width="24" height="70" rx="4" fill="#c084fc" opacity="0.85" />
+    <text x="132" y="195" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Home</text>
+
+    <!-- Trend line overlay -->
+    <path d="M 42 130 Q 87 90, 132 115" fill="none" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="3,3" />
+    <circle cx="87" cy="90" r="4" fill="#f43f5e" />
+    <circle cx="132" cy="115" r="4" fill="#f43f5e" />
+  </g>
+</svg>

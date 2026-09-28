@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 140" width="100%" height="140" style="background: transparent;">
+  <defs>
+    <!-- Card Gradients -->
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7e22ce" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes barFill1 { 0% { width: 0px; } 100% { width: 140px; } }
+    @keyframes barFill2 { 0% { width: 0px; } 100% { width: 110px; } }
+    @keyframes barFill3 { 0% { width: 0px; } 100% { width: 85px; } }
+    @keyframes barFill4 { 0% { width: 0px; } 100% { width: 125px; } }
+
+    .card-border { stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; transition: all 0.3s; }
+    .card-border:hover { stroke: rgba(56, 189, 248, 0.5); }
+    .fill-bar1 { animation: barFill1 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    .fill-bar2 { animation: barFill2 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    .fill-bar3 { animation: barFill3 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    .fill-bar4 { animation: barFill4 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+  </style>
+
+  <!-- CARD 1: Respondents -->
+  <g transform="translate(0, 0)">
+    <rect width="198" height="135" rx="12" fill="url(#cardGrad1)" class="card-border" />
+    <rect x="0" y="0" width="198" height="4" rx="2" fill="url(#accent1)" />
+    
+    <text x="18" y="32" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">SAMPLE SIZE</text>
+    <text x="18" y="68" fill="#f8fafc" font-family="sans-serif" font-size="30" font-weight="800">n = 60</text>
+    <text x="18" y="90" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="500">Students, MIDC &amp; Homemakers</text>
+    
+    <rect x="18" y="105" width="162" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
+    <rect class="fill-bar1" x="18" y="105" width="140" height="6" rx="3" fill="url(#accent1)" />
+  </g>
+
+  <!-- CARD 2: Mean Literacy Score -->
+  <g transform="translate(217, 0)">
+    <rect width="198" height="135" rx="12" fill="url(#cardGrad1)" class="card-border" />
+    <rect x="0" y="0" width="198" height="4" rx="2" fill="url(#accent2)" />
+    
+    <text x="18" y="32" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">MEAN LITERACY SCORE</text>
+    <text x="18" y="68" fill="#f8fafc" font-family="sans-serif" font-size="30" font-weight="800">67.3 <tspan font-size="18" fill="#64748b">/100</tspan></text>
+    <text x="18" y="90" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="500">Basic-to-Functional Baseline</text>
+    
+    <rect x="18" y="105" width="162" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
+    <rect class="fill-bar2" x="18" y="105" width="110" height="6" rx="3" fill="url(#accent2)" />
+  </g>
+
+  <!-- CARD 3: Top Obstacle -->
+  <g transform="translate(434, 0)">
+    <rect width="198" height="135" rx="12" fill="url(#cardGrad1)" class="card-border" />
+    <rect x="0" y="0" width="198" height="4" rx="2" fill="url(#accent3)" />
+    
+    <text x="18" y="32" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">PRIMARY BARRIER</text>
+    <text x="18" y="68" fill="#f8fafc" font-family="sans-serif" font-size="30" font-weight="800">48.3%</text>
+    <text x="18" y="90" fill="#fb7185" font-family="sans-serif" font-size="11" font-weight="500">Fear of Cyber Fraud &amp; Scams</text>
+    
+    <rect x="18" y="105" width="162" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
+    <rect class="fill-bar3" x="18" y="105" width="85" height="6" rx="3" fill="url(#accent3)" />
+  </g>
+
+  <!-- CARD 4: Impact Correlation -->
+  <g transform="translate(651, 0)">
+    <rect width="198" height="135" rx="12" fill="url(#cardGrad1)" class="card-border" />
+    <rect x="0" y="0" width="198" height="4" rx="2" fill="url(#accent4)" />
+    
+    <text x="18" y="32" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">STUDY CORRELATION</text>
+    <text x="18" y="68" fill="#f8fafc" font-family="sans-serif" font-size="30" font-weight="800">r ≈ 0.73</text>
+    <text x="18" y="90" fill="#c084fc" font-family="sans-serif" font-size="11" font-weight="500">Literacy Score ➔ Utility Index</text>
+    
+    <rect x="18" y="105" width="162" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
+    <rect class="fill-bar4" x="18" y="105" width="125" height="6" rx="3" fill="url(#accent4)" />
+  </g>
+</svg>

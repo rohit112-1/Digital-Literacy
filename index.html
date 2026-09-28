@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Literacy Boisar — Community Data & Insights Platform</title>
+  <meta name="description" content="A public data science platform presenting the Digital Literacy Impact Assessment for Boisar, Palghar District. Interactive charts, task-based self-check, and training calendar.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Chart.js CDN for interactive figures A1-A7 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Academic Study Disclaimer Banner (FR-7) -->
+  <div class="disclaimer-banner" role="alert">
+    <strong>Academic Project Notice:</strong> <span data-i18n="disclaimerBanner">Current figures are derived from an illustrative research dataset (n=60) for Boisar, Palghar District. Prepared for Theem College Dept. of Information Technology.</span>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-wrapper" onclick="switchTab('home')" role="button" tabindex="0">
+        <div class="brand-logo">DLB</div>
+        <div class="brand-text">
+          <h1 data-i18n="siteTitle">Digital Literacy Boisar</h1>
+          <p data-i18n="siteSubtitle">Community Data & Insights Platform — Palghar District</p>
+        </div>
+      </div>
+
+      <div class="nav-controls">
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links" id="nav-links">
+            <li><button class="nav-btn active" id="nav-home" data-nav-target="home" data-i18n="navHome">Home</button></li>
+            <li><button class="nav-btn" id="nav-insights" data-nav-target="insights" data-i18n="navInsights">Insights & Dashboard</button></li>
+            <li><button class="nav-btn" id="nav-selfcheck" data-nav-target="selfcheck" data-i18n="navSelfCheck">Digital Self-Check</button></li>
+            <li><button class="nav-btn" id="nav-training" data-nav-target="training" data-i18n="navTraining">Training & Resources</button></li>
+            <li><button class="nav-btn" id="nav-about" data-nav-target="about" data-i18n="navAbout">About the Study</button></li>
+            <li><button class="nav-btn" id="nav-admin" data-nav-target="admin" data-i18n="navAdmin">Mentor Console</button></li>
+          </ul>
+        </nav>
+
+        <!-- Multilingual Language Switcher (FR-3) -->
+        <div class="lang-picker-wrapper">
+          <select id="lang-select" aria-label="Select Language">
+            <option value="en">English (EN)</option>
+            <option value="hi">हिंदी (HI)</option>
+            <option value="mr">मराठी (MR)</option>
+          </select>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ========================================== -->
+    <!-- SECTION 1: HOME PAGE                        -->
+    <!-- ========================================== -->
+    <section id="section-home" class="container">
+      <div class="hero-section">
+        <span class="hero-tag" data-i18n="heroTag">COMMUNITY ENGAGEMENT & DATA SCIENCE INITIATIVE</span>
+        <h2 class="hero-title" data-i18n="heroTitle">Bridging the Digital Divide in Boisar</h2>
+        <p class="hero-desc" data-i18n="heroDesc">
+          A data-driven platform assessing digital literacy, identifying critical practical skill gaps, and delivering targeted community training across Boisar's industrial and residential clusters.
+        </p>
+        <div class="hero-cta-group">
+          <button class="btn btn-primary" onclick="switchTab('selfcheck')" data-i18n="ctaSelfCheck">Take Digital Self-Check</button>
+          <button class="btn btn-outline-light" onclick="switchTab('insights')" data-i18n="ctaInsights">Explore Study Insights</button>
+          <button class="btn btn-outline-light" onclick="switchTab('training')" data-i18n="ctaTraining">View 7-Session Training Plan</button>
+        </div>
+      </div>
+
+      <!-- 4 Headline Statistics Cards (FR-1) -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">67.3 <span style="font-size: 1.1rem; color: var(--muted)">/ 100</span></div>
+          <div class="stat-label" data-i18n="statMeanScore">Mean Literacy Score</div>
+          <div class="stat-subtext" data-i18n="statMeanDesc">Out of 100 points across 60 respondents</div>
+        </div>
+
+        <div class="stat-card accent-teal">
+          <div class="stat-number">r ≈ 0.73</div>
+          <div class="stat-label" data-i18n="statCorrelation">Correlation (r ≈ 0.73)</div>
+          <div class="stat-subtext" data-i18n="statCorrelationDesc">Strong link between literacy & daily digital impact</div>
+        </div>
+
+        <div class="stat-card accent-amber">
+          <div class="stat-number">93.3%</div>
+          <div class="stat-label" data-i18n="statAccess">Smartphone Availability</div>
+          <div class="stat-subtext" data-i18n="statAccessDesc">High hardware access at home (56/60 homes)</div>
+        </div>
+
+        <div class="stat-card accent-coral">
+          <div class="stat-number">48.3%</div>
+          <div class="stat-label" data-i18n="statBarrier">Top Community Barrier</div>
+          <div class="stat-subtext" data-i18n="statBarrierDesc">Fear of cyber fraud & fake payment scams (48.3%)</div>
+        </div>
+      </div>
+
+      <!-- Core Platform Pillars -->
+      <div class="section-title-wrap">
+        <h2>Three Pillars of the Boisar Initiative</h2>
+        <p>Turning an academic study into measurable, community-wide impact.</p>
+      </div>
+
+      <div class="pillar-grid">
+        <div class="card pillar-card">
+          <div>
+            <div class="pillar-icon">📊</div>
+            <h3 class="pillar-title" data-i18n="pillar1Title">1. Public Insights & 7 Core Charts</h3>
+            <p class="pillar-desc" data-i18n="pillar1Desc">Interactive charts presenting digital access, task performance gaps (Email 45%, e-Gov 51.7%), score distribution, and barriers.</p>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="switchTab('insights')">View All 7 Charts →</button>
+        </div>
+
+        <div class="card pillar-card">
+          <div>
+            <div class="pillar-icon">📱</div>
+            <h3 class="pillar-title" data-i18n="pillar2Title">2. Mobile-First Digital Self-Check</h3>
+            <p class="pillar-desc" data-i18n="pillar2Desc">A 3-minute task-based questionnaire calculating an instant score (0–100) and diagnosing your weakest skill with guidance.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="switchTab('selfcheck')">Check Your Score (3 min) →</button>
+        </div>
+
+        <div class="card pillar-card">
+          <div>
+            <div class="pillar-icon">🏫</div>
+            <h3 class="pillar-title" data-i18n="pillar3Title">3. Training & Assisted E-Desk</h3>
+            <p class="pillar-desc" data-i18n="pillar3Desc">A structured 7-session community syllabus, multilingual safety guides, and an in-person tech desk at Theem College campus.</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('training')">View Schedule & Desk Hours →</button>
+        </div>
+      </div>
+
+      <!-- Persona Spotlight from Section 4 -->
+      <div class="card p-4 mb-4">
+        <h3 class="text-primary font-bold mb-2">Designed for the Real People of Boisar</h3>
+        <p class="text-muted text-sm mb-4">Addressing the distinct practical needs identified across community segments.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <div style="background: #f8fafc; padding: 14px; border-radius: 8px; border-left: 3px solid #1d6fa5;">
+            <strong>Priya, 17 · Student</strong>
+            <p class="text-xs text-muted mt-1">Comfortable with mobile apps, but needs tools to verify information authenticity and peer mentoring.</p>
+          </div>
+          <div style="background: #f8fafc; padding: 14px; border-radius: 8px; border-left: 3px solid #2a9d8f;">
+            <strong>Ramesh, 34 · MIDC Worker</strong>
+            <p class="text-xs text-muted mt-1">Regular UPI user, but lacks experience with formal email, PDF attachments, and online forms.</p>
+          </div>
+          <div style="background: #f8fafc; padding: 14px; border-radius: 8px; border-left: 3px solid #e06b3b;">
+            <strong>Sunita, 45 · Homemaker</strong>
+            <p class="text-xs text-muted mt-1">Dependent on family for digital tasks; high fear of scams; requires Hindi/Marathi visual step-by-step guides.</p>
+          </div>
+          <div style="background: #f8fafc; padding: 14px; border-radius: 8px; border-left: 3px solid #f4a261;">
+            <strong>Prof. Kasar · Coordinator</strong>
+            <p class="text-xs text-muted mt-1">Monitors community impact, tracks cohort attendance, and exports verified data for academic research.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: INSIGHTS & DASHBOARD (FR-4 - 7)  -->
+    <!-- ========================================== -->
+    <section id="section-insights" class="container hidden">
+      <div class="section-title-wrap">
+        <h2 data-i18n="insightsTitle">Community Data & Analytics Dashboard</h2>
+        <p data-i18n="insightsSubtitle">Explore the 7 key findings from the source study with interactive filters.</p>
+      </div>
+
+      <!-- Filter Controls (FR-6) -->
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label for="filter-category" class="filter-label" data-i18n="filterCategory">Filter by Category:</label>
+          <select id="filter-category" class="filter-select">
+            <option value="all" data-i18n="allCategories">All Categories (n=60)</option>
+            <option value="student" data-i18n="studentsOnly">Students (n=20)</option>
+            <option value="working_adult" data-i18n="workersOnly">Working Adults / MIDC (n=20)</option>
+            <option value="homemaker_parent" data-i18n="homemakersOnly">Homemakers & Parents (n=20)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-age" class="filter-label" data-i18n="filterAge">Filter by Age Band:</label>
+          <select id="filter-age" class="filter-select">
+            <option value="all" data-i18n="allAges">All Age Bands</option>
+            <option value="15-20">15 – 20 Years</option>
+            <option value="21-30">21 – 30 Years</option>
+            <option value="31-40">31 – 40 Years</option>
+            <option value="41-50">41 – 50 Years</option>
+            <option value="51+">51+ Years</option>
+          </select>
+        </div>
+
+        <div class="filter-badge">
+          <span>● Live JSON Data Endpoint</span>
+        </div>
+      </div>
+
+      <!-- 7 Study Visualizations Grid -->
+      <div class="charts-grid">
+        
+        <!-- FIGURE A1 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A1 — Respondent Profile by Age & Category</h3>
+              <p>Sample distribution across 60 community respondents</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a1"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> Sample is evenly divided (20 students, 20 working adults, 20 homemakers), enabling balanced subgroup comparisons.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a1-wrap')">Toggle Data Table</button>
+          <div id="table-a1-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Age Group</th><th>Students</th><th>Working Adults</th><th>Homemakers</th><th>Total</th></tr></thead>
+              <tbody id="table-a1-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A2 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A2 — Digital Access Indicators</h3>
+              <p>% of respondents reporting regular access or usage</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a2"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> Smartphone access at home is high (93.3%), but purposeful usage like government e-services (58.3%) lags behind.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a2-wrap')">Toggle Data Table</button>
+          <div id="table-a2-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Access Indicator</th><th>Count / Sample</th><th>Percentage</th></tr></thead>
+              <tbody id="table-a2-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A3 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A3 — Digital Skill Task Performance</h3>
+              <p>% of respondents successfully completing practical tasks</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a3"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> Email attachment (45.0%) and government e-services (51.7%) are the two critical gaps our training syllabus addresses.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a3-wrap')">Toggle Data Table</button>
+          <div id="table-a3-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Skill Task</th><th>Successful</th><th>Rate</th><th>Status</th></tr></thead>
+              <tbody id="table-a3-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A4 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A4 — Digital Literacy Score Distribution</h3>
+              <p>Bands: Emerging (0–49), Basic (50–69), Functional (70–84), Strong (85–100)</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a4"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> 73.3% of the community falls in Basic (24) or Functional (20) bands, representing prime targets for structured upskilling.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a4-wrap')">Toggle Data Table</button>
+          <div id="table-a4-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Score Band</th><th>Respondents</th><th>Percentage</th></tr></thead>
+              <tbody id="table-a4-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A5 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A5 — Barriers to Digital Literacy</h3>
+              <p>Top challenges reported by community members</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a5"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> Fear of fraud/scams (48.3%) and difficulty with forms (40.0%) are the top barriers, justifying local safety clinics.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a5-wrap')">Toggle Data Table</button>
+          <div id="table-a5-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Barrier Category</th><th>Respondents</th><th>Rate</th></tr></thead>
+              <tbody id="table-a5-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A6 -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A6 — Practical Impact by Literacy Group</h3>
+              <p>Comparing high-literacy (score ≥ 70) vs. basic/emerging (&lt; 70) on 1–5 scale</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a6"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Key Takeaway:</strong> Higher literacy consistently maps to higher daily benefit across education, work, payments, and e-services.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a6-wrap')">Toggle Data Table</button>
+          <div id="table-a6-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Outcome Dimension</th><th>High-Literacy</th><th>Basic/Emerging</th><th>Difference</th></tr></thead>
+              <tbody id="table-a6-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FIGURE A7 (Full Width) -->
+        <div class="chart-card full-width">
+          <div class="chart-header">
+            <div class="chart-title-area">
+              <h3>Figure A7 — Literacy Score vs. Digital-Impact Index (r ≈ 0.73)</h3>
+              <p>Linear regression scatter plot confirming practical economic & educational correlation</p>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="chart-a7"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Study Quantitative Finding:</strong> Strong positive correlation (r = 0.73) proves that hands-on practical digital proficiency significantly improves daily household and occupational outcomes.
+          </div>
+          <button class="table-toggle-btn" onclick="toggleDataTable('table-a7-wrap')">Toggle Data Preview</button>
+          <div id="table-a7-wrap" class="data-table-container hidden">
+            <table class="data-table">
+              <thead><tr><th>Respondent ID</th><th>Category</th><th>Literacy Score (0–100)</th><th>Impact Index (1–5)</th></tr></thead>
+              <tbody id="table-a7-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: DIGITAL SELF-CHECK (FR-8 - 12)  -->
+    <!-- ========================================== -->
+    <section id="section-selfcheck" class="container hidden">
+      <div class="quiz-wrapper">
+        
+        <!-- Intro Screen -->
+        <div id="self-check-intro" class="card text-center p-4">
+          <div style="font-size: 3rem; margin-bottom: 12px;">📋</div>
+          <h2 class="text-primary font-bold mb-2" data-i18n="selfCheckTitle">Digital Literacy Self-Check</h2>
+          <p class="text-muted mb-4" data-i18n="selfCheckSubtitle">
+            Answer 8 quick questions to calculate your digital literacy score and receive a tailored learning roadmap.
+          </p>
+
+          <div style="background: #f1f5f9; border-radius: 8px; padding: 16px; margin-bottom: 24px; text-align: left; font-size: 0.9rem;">
+            <strong>🔒 Privacy Guarantee (FR-12):</strong>
+            <p class="text-muted mt-1" data-i18n="selfCheckPrivacyNote">Strictly Anonymous: No names, phone numbers, or passwords are ever requested. Responses feed only aggregate community analytics.</p>
+          </div>
+
+          <!-- Re-measurement Respondent Code Input (FR-11) -->
+          <div style="margin-bottom: 24px; text-align: left;">
+            <label for="retake-code-input" class="form-label" data-i18n="retakeNotice">Have a Respondent ID from a previous check? Enter it to compare your progress:</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="retake-code-input" class="form-input" placeholder="e.g. DLB-4812" style="max-width: 200px; text-transform: uppercase;">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="SelfCheckEngine.start()" data-i18n="startTestBtn">Start Quick Assessment</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="self-check-quiz" class="hidden">
+          <div class="quiz-progress-section">
+            <div class="progress-bar-bg">
+              <div id="quiz-progress-bar" class="progress-bar-fill" style="width: 10%;"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span id="quiz-step-count" class="progress-step-text">Question 1 of 10</span>
+            </div>
+          </div>
+
+          <div class="quiz-card">
+            <h3 id="quiz-question-title" class="quiz-question-heading">Loading question...</h3>
+            
+            <div id="quiz-options-container" class="quiz-options-list">
+              <!-- Dynamically populated options -->
+            </div>
+
+            <div class="quiz-nav-btns">
+              <button id="quiz-prev-btn" class="btn btn-outline" onclick="SelfCheckEngine.prevStep()">← Previous</button>
+              <button id="quiz-next-btn" class="btn btn-primary" onclick="SelfCheckEngine.nextStep()" disabled>Next Question →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="self-check-results" class="results-card hidden">
+          <div class="score-display-circle">
+            <div id="res-score-number" class="score-number">68</div>
+            <div class="score-denom">OUT OF 100</div>
+          </div>
+
+          <div>
+            <span id="res-category-badge" class="category-pill" style="background: #1d6fa5;">Basic</span>
+          </div>
+
+          <p id="res-category-desc" class="category-desc">
+            Comfortable with basic smartphone tasks, but could benefit from targeted practice in formal email attachments and government portals.
+          </p>
+
+          <!-- Re-measurement comparison banner (FR-11) -->
+          <div id="res-comparison-banner" class="comparison-alert hidden">
+            📈 <span id="res-previous-score-text">Score Progression Recorded</span>
+          </div>
+
+          <div>
+            <div class="text-xs text-muted mb-1">Your Anonymous Assessment ID (Save this to track growth):</div>
+            <div id="res-respondent-id" class="respondent-id-tag">DLB-9842</div>
+          </div>
+
+          <!-- Weakest Dimension Personalized Guidance (FR-10) -->
+          <div class="recommendation-box">
+            <h4 id="res-weakest-title">Recommended Priority: Email & Document Handling</h4>
+            <p class="text-sm text-muted mb-3">Based on your answers, mastering this practical skill will give you the highest daily advantage.</p>
+            <div class="p-2 bg-white rounded border mb-3">
+              <strong>📅 Recommended Upcoming Workshop:</strong>
+              <div id="res-recommended-workshop" class="text-primary font-semibold">Session 3: Practical Email & Document Attachment</div>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-primary" onclick="switchTab('training')">Register for Free Workshop</button>
+              <button class="btn btn-sm btn-outline" onclick="openGuidePreview('G-CYBER')">Read Free Guide</button>
+            </div>
+          </div>
+
+          <button class="btn btn-outline" onclick="SelfCheckEngine.reset()">Take Another Assessment</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: TRAINING & RESOURCES (FR-13 - 15)-->
+    <!-- ========================================== -->
+    <section id="section-training" class="container hidden">
+      <div class="section-title-wrap">
+        <h2 data-i18n="trainingTitle">Community Training & Resources Hub</h2>
+        <p data-i18n="trainingSubtitle">Bridging the gap between device ownership and confident, safe digital participation.</p>
+      </div>
+
+      <!-- Assisted E-Service Help Desk (FR-15) -->
+      <div class="desk-banner">
+        <div class="desk-icon">🏢</div>
+        <div class="desk-content">
+          <h3 data-i18n="deskTitle">Assisted E-Service Help Desk</h3>
+          <p><strong>📍 Location:</strong> <span data-i18n="deskLocation">Theem College Campus, Boisar West — Tech Center Room 204</span></p>
+          <p><strong>⏰ Operational Hours:</strong> <span data-i18n="deskHours">Monday to Friday: 10:00 AM – 4:00 PM | Saturday: 10:00 AM – 1:00 PM</span></p>
+          <p class="text-sm" data-i18n="deskServices">Services: Online government forms (Aaple Sarkar, Aadhaar, DigiLocker), document scanning, and 1-on-1 student mentor guidance.</p>
+        </div>
+      </div>
+
+      <!-- 7-Session Training Plan Calendar (FR-13) -->
+      <div class="section-title-wrap">
+        <h3 class="text-primary font-bold mb-1">7-Session Community Training Syllabus (Appendix F)</h3>
+        <p class="text-muted text-sm">Free hands-on workshops conducted by student digital mentors and faculty.</p>
+      </div>
+
+      <div id="training-sessions-grid" class="sessions-grid">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+
+      <!-- Multilingual Downloadable Handbooks (FR-14) -->
+      <div class="section-title-wrap mt-4">
+        <h3 class="text-primary font-bold mb-1" data-i18n="downloadGuidesTitle">Multilingual Step-by-Step Handbooks</h3>
+        <p class="text-muted text-sm">Versioned, practical guides in English, Hindi, and Marathi formatted for easy reading on mobile or printing.</p>
+      </div>
+
+      <div id="guides-cards-grid" class="guides-grid">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: ABOUT THE STUDY                  -->
+    <!-- ========================================== -->
+    <section id="section-about" class="container hidden">
+      <div class="card p-4 mb-4">
+        <h2 class="text-primary font-bold mb-2">About the Source Academic Study</h2>
+        <p class="text-muted mb-4">Community Engagement Project: Digital Literacy Impact Assessment Using Data Science — A Study of Boisar, Palghar District</p>
+        
+        <div style="line-height: 1.8; color: #334155;">
+          <h4 class="text-primary font-bold mt-4 mb-2">1. Research Background & Context</h4>
+          <p>Boisar is a major industrial and semi-urban center within Palghar district of Maharashtra, hosting the MIDC industrial belt alongside residential, agricultural, and tribal communities. While smartphone proliferation is high across households, formal digital capability—such as filing government forms, navigating Aaple Sarkar, or recognizing phishing—remains uneven.</p>
+
+          <h4 class="text-primary font-bold mt-4 mb-2">2. Academic Origin & Project Team</h4>
+          <p>This initiative and website were formulated under the academic guidance of the <strong>Department of Information Technology, Theem College of Arts, Commerce & Science, Boisar</strong>.</p>
+          <ul style="margin-left: 20px; margin-top: 8px;">
+            <li><strong>Student Researchers:</strong> Rohit Kumar Prasad (Roll No. 17) · Sunny Singh (Roll No. 25)</li>
+            <li><strong>Project Mentor:</strong> Prof. Sarvesh K Kasar</li>
+            <li><strong>Academic Program:</strong> B.Sc. Data Science / Information Technology</li>
+            <li><strong>Publication Version:</strong> 1.0 (Draft for Review — September 2026)</li>
+          </ul>
+
+          <h4 class="text-primary font-bold mt-4 mb-2">3. Ethical Guidelines & Data Privacy (Section 3.8)</h4>
+          <p>In accordance with research ethics standards, this platform practices strict privacy-by-design:</p>
+          <ul style="margin-left: 20px; margin-top: 8px;">
+            <li>No personal identifiable information (names, mobile numbers, Aadhaar numbers, residential addresses) is collected or stored.</li>
+            <li>Under no circumstances are banking credentials, UPI PINs, passwords, or OTPs ever requested.</li>
+            <li>All Self-Check entries generate anonymous token codes (e.g. <code>DLB-xxxx</code>) ensuring individuals can re-measure their progress while preserving aggregate confidentiality.</li>
+          </ul>
+
+          <h4 class="text-primary font-bold mt-4 mb-2">4. PRD Traceability Matrix</h4>
+          <div class="data-table-container mt-2">
+            <table class="data-table">
+              <thead><tr><th>Source Section</th><th>PRD Element</th><th>Implemented Live Feature</th></tr></thead>
+              <tbody>
+                <tr><td>Section 1.4</td><td>Goals & Metrics</td><td>Headline stats cards, correlation coefficient display</td></tr>
+                <tr><td>Section 3.6</td><td>Scoring Logic</td><td>Digital Self-Check with 0–100 composite engine & category mapping</td></tr>
+                <tr><td>Section 4.4–4.10</td><td>Figures A1–A7</td><td>7 interactive Chart.js visualizations with live filters & raw tables</td></tr>
+                <tr><td>Section 5.2</td><td>Recommendations</td><td>Assisted E-Service Desk, downloadable guides in EN/HI/MR</td></tr>
+                <tr><td>Appendix F</td><td>Training Plan</td><td>7-session browsable workshop calendar with batch booking</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: MENTOR CONSOLE (FR-16 - 18)     -->
+    <!-- ========================================== -->
+    <section id="section-admin" class="container hidden">
+      <!-- Login Card -->
+      <div id="admin-login-card" class="card admin-login-box">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">🔐</div>
+        <h3 class="text-primary font-bold mb-2">Mentor & Coordinator Console</h3>
+        <p class="text-muted text-sm mb-4">Enter project passcode to manage workshops and export research data.</p>
+        
+        <form onsubmit="event.preventDefault(); AdminConsole.login(document.getElementById('admin-pin-input').value);">
+          <div class="form-group text-left">
+            <label for="admin-pin-input" class="form-label">Mentor Passcode / PIN:</label>
+            <input type="password" id="admin-pin-input" class="form-input text-center" placeholder="Enter PIN (Default: 1725)" style="letter-spacing: 2px; font-weight: 700;">
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mb-2" style="width: 100%;">Sign In to Console</button>
+          <button type="button" class="btn btn-outline w-100" style="width: 100%;" onclick="AdminConsole.login('1725')">One-Click Mentor Demo Unlock</button>
+        </form>
+        <p class="text-xs text-muted mt-3">Passcode is set to 1725 (Roll Nos. 17 & 25).</p>
+      </div>
+
+      <!-- Dashboard View -->
+      <div id="admin-dashboard-view" class="hidden">
+        <div class="admin-dash-header">
+          <div>
+            <h2 class="text-primary font-bold">Mentor & Coordinator Dashboard</h2>
+            <p class="text-muted text-sm">Managing the Boisar Community Engagement Initiative</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline" onclick="AdminConsole.exportCSV()">📥 Export Dataset (CSV)</button>
+            <button class="btn btn-sm btn-outline" onclick="AdminConsole.exportJSON()">📥 Export JSON</button>
+            <button class="btn btn-sm btn-outline" onclick="AdminConsole.resetDataset()">↺ Reset Sample</button>
+            <button class="btn btn-sm btn-secondary" onclick="AdminConsole.logout()">Sign Out</button>
+          </div>
+        </div>
+
+        <!-- Aggregate Self-Check Stats (FR-17) -->
+        <div class="stat-grid mb-4">
+          <div class="stat-card">
+            <div id="admin-total-respondents" class="stat-number">60</div>
+            <div class="stat-label">Total Sample Size</div>
+            <div class="stat-subtext">Verified responses in database</div>
+          </div>
+          <div class="stat-card accent-teal">
+            <div id="admin-mean-score" class="stat-number">67.3 / 100</div>
+            <div class="stat-label">Live Mean Literacy Score</div>
+            <div class="stat-subtext">Across all demographic segments</div>
+          </div>
+          <div class="stat-card accent-coral">
+            <div id="admin-emerging-count" class="stat-number">8 (13%)</div>
+            <div class="stat-label">Emerging Score Band (&lt;50)</div>
+            <div class="stat-subtext">Immediate intervention candidates</div>
+          </div>
+          <div class="stat-card accent-amber">
+            <div id="admin-strong-count" class="stat-number">8 (13%)</div>
+            <div class="stat-label">Strong Score Band (85+)</div>
+            <div class="stat-subtext">Potential student digital mentors</div>
+          </div>
+        </div>
+
+        <!-- Skill Gap Analysis -->
+        <div class="card p-4 mb-4">
+          <h4 class="text-primary font-bold mb-2">Priority Community Interventions</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <div class="p-3 bg-light rounded border">
+              <strong>Email & Attachment Gap:</strong>
+              <div id="admin-email-gap-stat" class="text-danger font-bold mt-1">33 / 60 (55% need training)</div>
+              <p class="text-xs text-muted mt-1">Directly targeted by Workshop Session 3.</p>
+            </div>
+            <div class="p-3 bg-light rounded border">
+              <strong>Government e-Services Gap:</strong>
+              <div id="admin-egov-gap-stat" class="text-danger font-bold mt-1">29 / 60 (48% need training)</div>
+              <p class="text-xs text-muted mt-1">Addressed by Aaple Sarkar desk & Session 5.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop Sessions Management (FR-16) -->
+        <div class="card p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-primary font-bold">Community Workshop Sessions (Appendix F)</h4>
+          </div>
+          <div class="data-table-container mb-4">
+            <table class="data-table">
+              <thead><tr><th>Session</th><th>Title & Target</th><th>Date & Time</th><th>Attendance</th><th>Action</th></tr></thead>
+              <tbody id="admin-workshop-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Add New Session Form -->
+          <div class="p-3 bg-light rounded border">
+            <h5 class="font-bold mb-3">Add New Workshop Session</h5>
+            <form id="add-workshop-form" onsubmit="AdminConsole.addNewWorkshop(event)">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 12px;">
+                <div>
+                  <label class="form-label">Session Topic:</label>
+                  <input type="text" id="ws-title-input" class="form-input" placeholder="e.g. DigiLocker Advanced Camp" required>
+                </div>
+                <div>
+                  <label class="form-label">Date:</label>
+                  <input type="date" id="ws-date-input" class="form-input" required>
+                </div>
+                <div>
+                  <label class="form-label">Time:</label>
+                  <input type="text" id="ws-time-input" class="form-input" placeholder="e.g. 11:00 AM - 01:00 PM" required>
+                </div>
+                <div>
+                  <label class="form-label">Target Audience:</label>
+                  <input type="text" id="ws-target-input" class="form-input" placeholder="e.g. Senior Citizens / Vendors" required>
+                </div>
+                <div>
+                  <label class="form-label">Location / Room:</label>
+                  <input type="text" id="ws-loc-input" class="form-input" placeholder="e.g. Tech Lab 1, Theem College" required>
+                </div>
+                <div>
+                  <label class="form-label">Total Seats:</label>
+                  <input type="number" id="ws-seats-input" class="form-input" value="30" min="5" max="100" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">+ Publish New Session</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: WORKSHOP REGISTRATION DIALOG        -->
+  <!-- ========================================== -->
+  <div id="workshop-reg-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-session-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeWorkshopModal()" aria-label="Close dialog">✕</button>
+      <h3 id="modal-session-title" class="text-primary font-bold mb-1">Session Registration</h3>
+      <p id="modal-session-details" class="text-muted text-sm mb-4">Free community attendance supported by Theem College IT Department.</p>
+
+      <form id="reg-form" onsubmit="submitWorkshopReg(event)">
+        <div class="form-group">
+          <label for="reg-name" class="form-label">Attendee Name or Alias (For entry pass):</label>
+          <input type="text" id="reg-name" class="form-input" placeholder="e.g. Ramesh P. / Sunita" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-role" class="form-label">Community Category:</label>
+          <select id="reg-role" class="form-select">
+            <option value="student">Student (High School / College)</option>
+            <option value="working_adult">MIDC Worker / Small Business</option>
+            <option value="homemaker">Homemaker / Parent</option>
+            <option value="senior">Senior Citizen</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+            <input type="checkbox" id="reg-mentor-checkbox" checked>
+            <span>Request a 1-on-1 Student Digital Mentor during the practical session</span>
+          </label>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button type="button" class="btn btn-outline" onclick="closeWorkshopModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Free Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: GUIDE PREVIEW & PRINT DIALOG        -->
+  <!-- ========================================== -->
+  <div id="guide-preview-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeGuideModal()" aria-label="Close modal">✕</button>
+      <h3 id="guide-modal-title" class="text-primary font-bold mb-2">Guide Preview</h3>
+      <div id="guide-modal-content">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-credits">
+        <strong>Digital Literacy Boisar — Community Data & Insights Platform</strong><br>
+        <span data-i18n="collegeTag">Theem College of Arts, Commerce & Science — Dept. of Information Technology</span>
+      </div>
+      <div class="footer-copy">
+        <p data-i18n="footerTeam">Project Team: Rohit Kumar Prasad (Roll No. 17) · Sunny Singh (Roll No. 25) | Mentor: Prof. Sarvesh K Kasar</p>
+        <p class="mt-1">Source Study: Community Engagement Project: Digital Literacy Impact Assessment Using Data Science · September 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/self-check.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

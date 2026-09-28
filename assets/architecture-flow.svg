@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 160" width="100%" height="160" style="background: transparent;">
+  <defs>
+    <linearGradient id="flowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseDot {
+      0% { offset-distance: 0%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+    @keyframes strokeAnim {
+      0% { stroke-dashoffset: 200; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .flow-line { stroke: url(#lineGrad); stroke-width: 2.5; stroke-dasharray: 6,4; }
+    .node-box { fill: rgba(30, 41, 59, 0.9); stroke: rgba(255, 255, 255, 0.15); stroke-width: 1.5; filter: url(#nodeShadow); }
+    .node-title { fill: #f8fafc; font-family: sans-serif; font-size: 12px; font-weight: 700; }
+    .node-sub { fill: #94a3b8; font-family: sans-serif; font-size: 10px; }
+  </style>
+
+  <rect width="850" height="160" rx="14" fill="url(#flowBg)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+  <!-- Connecting Lines -->
+  <path class="flow-line" d="M 160 80 L 230 80 M 370 80 L 440 80 M 580 80 L 650 80" />
+
+  <!-- Arrows -->
+  <polygon points="230,75 240,80 230,85" fill="#818cf8" />
+  <polygon points="440,75 450,80 440,85" fill="#818cf8" />
+  <polygon points="650,75 660,80 650,85" fill="#34d399" />
+
+  <!-- NODE 1: Community Input -->
+  <g transform="translate(20, 35)">
+    <rect class="node-box" width="140" height="90" rx="10" />
+    <circle cx="70" cy="30" r="14" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="70" y="34" text-anchor="middle" fill="#38bdf8" font-size="14">👥</text>
+    <text class="node-title" x="70" y="60" text-anchor="middle">Community User</text>
+    <text class="node-sub" x="70" y="75" text-anchor="middle">Students, MIDC, Homemakers</text>
+  </g>
+
+  <!-- NODE 2: Digital Self-Check Engine -->
+  <g transform="translate(230, 35)">
+    <rect class="node-box" width="140" height="90" rx="10" />
+    <circle cx="70" cy="30" r="14" fill="rgba(129, 140, 248, 0.2)" stroke="#818cf8" stroke-width="1.5" />
+    <text x="70" y="34" text-anchor="middle" fill="#818cf8" font-size="14">📝</text>
+    <text class="node-title" x="70" y="60" text-anchor="middle">Self-Check Engine</text>
+    <text class="node-sub" x="70" y="75" text-anchor="middle">0-100 Score &amp; Recommendations</text>
+  </g>
+
+  <!-- NODE 3: Interactive Visual Insights -->
+  <g transform="translate(440, 35)">
+    <rect class="node-box" width="140" height="90" rx="10" />
+    <circle cx="70" cy="30" r="14" fill="rgba(192, 132, 252, 0.2)" stroke="#c084fc" stroke-width="1.5" />
+    <text x="70" y="34" text-anchor="middle" fill="#c084fc" font-size="14">📊</text>
+    <text class="node-title" x="70" y="60" text-anchor="middle">Data Insights (A1-A7)</text>
+    <text class="node-sub" x="70" y="75" text-anchor="middle">7 Charts &amp; Tabular Views</text>
+  </g>
+
+  <!-- NODE 4: Training & Mentor Console -->
+  <g transform="translate(650, 35)">
+    <rect class="node-box" width="180" height="90" rx="10" stroke="#34d399" />
+    <circle cx="90" cy="30" r="14" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5" />
+    <text x="90" y="34" text-anchor="middle" fill="#34d399" font-size="14">🎓</text>
+    <text class="node-title" x="90" y="60" text-anchor="middle">Training &amp; Mentor Hub</text>
+    <text class="node-sub" x="90" y="75" text-anchor="middle">7 Workshops &amp; CSV/JSON Export</text>
+  </g>
+</svg>
