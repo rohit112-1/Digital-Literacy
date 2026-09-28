@@ -1,0 +1,24 @@
+{
+  "name": "digital-literacy-boisar",
+  "version": "1.0.0",
+  "description": "Digital Literacy Boisar — Community Data & Insights Platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohit112-1/Digital-Literacy.git"
+  },
+  "keywords": [
+    "digital-literacy",
+    "boisar",
+    "data-science",
+    "community-engagement"
+  ],
+  "author": "Theem College Department of IT",
+  "license": "MIT"
+}

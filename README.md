@@ -10,6 +10,7 @@
   <a href="#-key-features"><img src="https://img.shields.io/badge/Status-Live%20Platform-0284c7?style=for-the-badge&logo=react&logoColor=white" alt="Status" /></a>
   <a href="#-institution--authorship"><img src="https://img.shields.io/badge/Research-Theem%20College%20IT-4f46e5?style=for-the-badge&logo=google-academic&logoColor=white" alt="Institution" /></a>
   <a href="#-multilingual-support"><img src="https://img.shields.io/badge/Languages-EN%20%7C%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%7C%20%E0%A4%AE%E0%A4%B0%E0%A4%BE%E0%A4%A0%E0%A5%80-7c3aed?style=for-the-badge" alt="Languages" /></a>
+  <a href="https://render.com/deploy?repo=https://github.com/rohit112-1/Digital-Literacy"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="28" /></a>
   <a href="https://github.com/rohit112-1/Digital-Literacy"><img src="https://img.shields.io/badge/License-MIT-059669?style=for-the-badge" alt="License" /></a>
 </p>
 
@@ -97,6 +98,29 @@ The empirical research evaluates digital access, task execution skills, barriers
 - **One-Click Data Export**: Download complete dataset in **CSV** or **JSON** format matching PRD specs.
 
 <img src="./assets/divider.svg" width="100%" />
+
+---
+
+## ☁️ Deployment on Render
+
+This repository includes a `render.yaml` blueprint configuration for instant, zero-config deployment on Render.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/rohit112-1/Digital-Literacy)
+
+### 1-Click Deployment (Recommended)
+1. Click the **Deploy to Render** button above or navigate to [https://render.com/deploy?repo=https://github.com/rohit112-1/Digital-Literacy](https://render.com/deploy?repo=https://github.com/rohit112-1/Digital-Literacy).
+2. Sign in to your Render account.
+3. Click **Apply** to deploy the `digital-literacy-boisar` static site blueprint.
+
+### Manual Setup on Render Dashboard
+1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New + ➔ Static Site**.
+2. Connect your GitHub repository: `rohit112-1/Digital-Literacy`.
+3. Configure settings:
+   - **Name:** `digital-literacy-boisar`
+   - **Branch:** `main`
+   - **Build Command:** *(leave empty)*
+   - **Publish Directory:** `./` (or `.`)
+4. Click **Create Static Site**.
 
 ---
 
